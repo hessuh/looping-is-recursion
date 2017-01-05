@@ -45,7 +45,13 @@
       (recur (dec n) (rest as)))))
 
 (defn avg [a-seq]
-  -1)
+  (loop [sum 0
+         as a-seq]
+    (cond
+      (empty? as)
+      (/ sum (count a-seq))
+      :else
+      (recur (+ sum (first as)) (rest as)))))
 
 (defn parity [a-seq]
   ":(")
