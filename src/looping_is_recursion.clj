@@ -58,7 +58,13 @@
     (set(for [[k v] counts :when (odd? v)] k))))
 
 (defn fast-fibo [n]
-  ":(")
+  (loop [a 0
+         b 1
+         c n]
+    (if
+      (zero? c)
+      a
+      (recur (+ a b) a (dec c)))))
 
 (defn cut-at-repetition [a-seq]
   [":("])
