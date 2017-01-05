@@ -67,5 +67,13 @@
       (recur (+ a b) a (dec c)))))
 
 (defn cut-at-repetition [a-seq]
-  [":("])
-
+  (loop [acc #{}
+         as a-seq
+         bs []]
+    (let [e (first as)]
+      (if
+        (or
+          (empty? as)
+          (contains? acc e))
+        bs
+        (recur (conj acc e) (rest as) (conj bs e))))))
