@@ -17,7 +17,21 @@
 
 
 (defn seq= [seq1 seq2]
-  ":(")
+  (if-not
+    (= (count seq1)
+       (count seq2))
+    false
+    (let [helper (fn [s1 s2]
+                   (if (empty? s1)
+                     true
+                     (if-not
+                       (= (first s2)
+                          (first s1))
+                       false
+                       (recur (rest s1) (rest s2)))))]
+
+      (helper seq1 seq2))))
+
 
 (defn find-first-index [pred a-seq]
   ":(")
