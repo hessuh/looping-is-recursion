@@ -54,7 +54,8 @@
       (recur (+ sum (first as)) (rest as)))))
 
 (defn parity [a-seq]
-  ":(")
+  (let [counts (frequencies a-seq)]
+    (set(for [[k v] counts :when (odd? v)] k))))
 
 (defn fast-fibo [n]
   ":(")
