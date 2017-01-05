@@ -8,7 +8,13 @@
     (helper 1 base exp)))
 
 (defn last-element [a-seq]
-  ":(")
+  (if-not (seq a-seq) nil
+    (let [helper (fn [n a-seq]
+                   (if (= 1 n)
+                     (first a-seq)
+                     (recur (dec n) (rest a-seq))))]
+      (helper (count a-seq) a-seq))))
+
 
 (defn seq= [seq1 seq2]
   ":(")
