@@ -34,7 +34,15 @@
 
 
 (defn find-first-index [pred a-seq]
-  ":(")
+  (loop [n (count a-seq)
+         as a-seq]
+    (cond
+      (zero? n)
+      nil
+      (pred (first as))
+      (- (count a-seq) n)
+      :else
+      (recur (dec n) (rest as)))))
 
 (defn avg [a-seq]
   -1)
